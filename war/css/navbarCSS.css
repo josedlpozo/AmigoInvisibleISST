@@ -1,0 +1,12 @@
+nav.navbar {
+    background-color: #388E3C;
+}
+
+.nav.navbar-nav li a{
+    color:#D7CCC8;
+}
+
+
+.navbar-header .navbar-brand{
+    color: #D7CCC8;
+}

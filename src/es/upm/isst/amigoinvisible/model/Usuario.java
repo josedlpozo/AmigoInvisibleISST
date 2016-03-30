@@ -16,45 +16,32 @@ import javax.persistence.Id;
 public class Usuario {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String id;
 	
-	@Basic
-	private String nombre;
-	@Basic
-	private String apellidos;
 	@Basic
 	private String username;
 	@Basic
 	private String email;
 	@Basic
-	private String contrasena;
+	private String contraseña;
 	@Basic
 	private List<String> deseos;
 
-	public Usuario(String nombre, String apellidos, String username,
-			String email, String contrasena) {
-		this.nombre = nombre;
-		this.apellidos = apellidos;
+	public Usuario(String username, String email, String userId) {
 		this.username = username;
 		this.email = email;
-		this.contrasena = contrasena;
+		this.id = userId;
 	}
-
-	public String getNombre() {
-		return this.nombre;
+	
+	public Usuario(String username, String email, String contraseña, String userId) {
+		this.username = username;
+		this.email = email;
+		this.id = userId;
+		this.contraseña = contraseña;
 	}
-
-	public void setNombre(String nuevoNombre) {
-		this.nombre = nuevoNombre;
-	}
-
-	public String getApellidos() {
-		return this.apellidos;
-	}
-
-	public void setApellidos(String nuevosApellidos) {
-		this.apellidos = nuevosApellidos;
+	
+	public String getContraseña(){
+		return this.contraseña;
 	}
 
 	public String getUsername() {
@@ -73,16 +60,15 @@ public class Usuario {
 		this.email = newEmail;
 	}
 
-	public String getContrasena() {
-		return this.contrasena;
-	}
-
-	public void setContrasena(String nuevaContrasena) {
-		this.contrasena = nuevaContrasena;
-	}
-
 	public List<String> getDeseos() {
 		return this.deseos;
 	}
-
+	
+	public void setId(String userId){
+		this.id = userId;
+	}
+	
+	public String getUserId(){
+		return this.id;
+	}
 }

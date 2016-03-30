@@ -1,0 +1,18 @@
+
+.container_content {
+
+	margin: 0 auto;
+    width: 925px;
+    min-height: 200px;
+    height: auto !important;
+    height: 200px;
+    float: inherit;
+    z-index: 2;
+}
+
+div {
+    position: relative;
+}
+user agent stylesheetdiv {
+    display: block;
+}
