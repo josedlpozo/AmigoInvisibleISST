@@ -22,8 +22,11 @@ public class LoginUserServlet extends HttpServlet {
 				req.getSession().setAttribute("id", dao.getUserByName(userName).getUserId());
 				resp.sendRedirect("/interfazMiComunidad.jsp");
 				return;
+			}else{
+				req.getSession().setAttribute("password", "La contraseña introducida es incorrecta");
+				resp.sendRedirect("interfazLogin.jsp");
+				return;
 			}
-			resp.sendRedirect("index.html");
 		}
 		resp.sendRedirect("index.html");
 	}
