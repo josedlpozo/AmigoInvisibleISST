@@ -23,7 +23,7 @@ public class Usuario {
 	@Basic
 	private String email;
 	@Basic
-	private String contraseña;
+	private String password;
 	@Basic
 	private List<String> deseos;
 
@@ -33,15 +33,15 @@ public class Usuario {
 		this.id = userId;
 	}
 	
-	public Usuario(String username, String email, String contraseña, String userId) {
+	public Usuario(String username, String email, String password, String userId) {
 		this.username = username;
 		this.email = email;
 		this.id = userId;
-		this.contraseña = contraseña;
+		this.password = password;
 	}
 	
-	public String getContraseña(){
-		return this.contraseña;
+	public String getPassword(){
+		return this.password;
 	}
 
 	public String getUsername() {

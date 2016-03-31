@@ -16,8 +16,8 @@ public class LoginUserServlet extends HttpServlet {
 		String userName = req.getParameter("name");
 		if(dao.getUserByName(userName) != null){
 			System.out.println(req.getParameter("password"));
-			System.out.println(dao.getUserByName(userName).getContraseña());
-			if(req.getParameter("password").equals(dao.getUserByName(userName).getContraseña())){
+			System.out.println(dao.getUserByName(userName).getPassword());
+			if(req.getParameter("password").equals(dao.getUserByName(userName).getPassword())){
 				req.getSession().setAttribute("user", userName);
 				req.getSession().setAttribute("id", dao.getUserByName(userName).getUserId());
 				resp.sendRedirect("/interfazMiComunidad.jsp");
