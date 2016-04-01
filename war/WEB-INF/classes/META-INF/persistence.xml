@@ -6,6 +6,7 @@
 
     <persistence-unit name="transactions-optional">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+        <class>es.upm.isst.amigoinvisible.model.Usuario</class>
         <properties>
             <property name="datanucleus.NontransactionalRead" value="true"/>
             <property name="datanucleus.NontransactionalWrite" value="true"/>
@@ -15,6 +16,7 @@
 
     <persistence-unit name="eventual-reads-short-deadlines">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+        <class>es.upm.isst.amigoinvisible.model.Usuario</class>
         <properties>
             <property name="datanucleus.NontransactionalRead" value="true"/>
             <property name="datanucleus.NontransactionalWrite" value="true"/>

@@ -142,6 +142,7 @@
 								<div class="clear05"></div>
 								<br>
 								<label><c:out value="${password}"/></label>
+								<label><c:out value="${usernameNoExiste}"/></label>
 							</div>
 							<br>
 							<div class='message' id='emailDiv'>La confirmacion de

@@ -23,11 +23,12 @@ public class LoginUserServlet extends HttpServlet {
 				resp.sendRedirect("/interfazMiComunidad.jsp");
 				return;
 			}else{
-				req.getSession().setAttribute("password", "La contraseÃ±a introducida es incorrecta");
+				req.getSession().setAttribute("password", "La contraseña introducida es incorrecta");
 				resp.sendRedirect("interfazLogin.jsp");
 				return;
 			}
 		}
-		resp.sendRedirect("index.html");
+		req.getSession().setAttribute("usernameNoExiste", "No existe usuario registrado con ese nombre");
+		resp.sendRedirect("interfazLogin.jsp");
 	}
 }

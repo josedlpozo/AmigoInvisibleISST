@@ -28,13 +28,20 @@ public class RegisterUserServlet extends HttpServlet {
 				resp.sendRedirect("/interfazMiComunidad.jsp");
 				return;
 			}
-			resp.sendRedirect("index.html");
+			req.getSession().setAttribute("samepasswords", "Las contraseñas introducidas son distintas.");
+			resp.sendRedirect("interfazRegistro.jsp");
 		}else{
 			Usuario user = dao.getUserByName(userName);
 			System.out.println("Already Register "+userName);
 			req.getSession().setAttribute("user", user.getUsername());
 			req.getSession().setAttribute("userId", user.getUserId());
-			resp.sendRedirect("/interfazMiComunidad.jsp");
+			if(user.getPassword().equals(req.getParameter("password"))){
+				resp.sendRedirect("/interfazMiComunidad.jsp");
+			}else{
+				req.getSession().setAttribute("error", "Usuario ya registrado, introduzca la contraseña correctamente.");
+				resp.sendRedirect("interfazRegistro.jsp");
+			}
+			
 		}
 	}
 }

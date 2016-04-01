@@ -72,7 +72,7 @@
 											<a  href="interfazmicuenta.html">Mi cuenta</a>
 									</li>  
 									<li class="page-scroll">
-											<a href="interfazcambiarpassword.html">Cambiar contraseÃ±a</a>
+											<a href="interfazcambiarpassword.html">Cambiar contraseña</a>
 									</li>
 									<li class="page-scroll">
 											<a href="index.html">Salir</a>
