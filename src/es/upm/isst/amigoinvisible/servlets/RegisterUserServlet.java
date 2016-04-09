@@ -2,7 +2,15 @@ package es.upm.isst.amigoinvisible.servlets;
 
 import java.io.IOException;
 import java.math.BigInteger;
+import java.util.Properties;
 import java.util.Random;
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.*;
 import es.upm.isst.amigoinvisible.datastore.UserDao;
 import es.upm.isst.amigoinvisible.datastore.UserDaoImpl;
@@ -10,7 +18,7 @@ import es.upm.isst.amigoinvisible.model.Usuario;
 
 @SuppressWarnings("serial")
 public class RegisterUserServlet extends HttpServlet {
-	
+
 	public void doGet(HttpServletRequest req, final HttpServletResponse resp) throws IOException {
 		UserDao dao = UserDaoImpl.getInstance();
 		String userName = req.getParameter("username");
@@ -25,10 +33,20 @@ public class RegisterUserServlet extends HttpServlet {
 				req.getSession().setAttribute("user", userName);
 				req.getSession().setAttribute("userId", userId);
 				dao.saveUserWithPassword(userName, req.getParameter("email"), password1, userId);
+				Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
+				try {
+					msg.setFrom(new InternetAddress("amigo@amigoinvisibleisst.appspotmail.com", "Sistema de registro Amigo Invisible"));
+					msg.addRecipient(Message.RecipientType.TO,  new InternetAddress(req.getParameter("email"), "Registro AMIGO INVISIBLE"));
+					msg.setSubject("Bienvenido a la aplicaciÃ³n de Amigo Invisible.");
+					msg.setText("Bienvenido "+userName+",\n Comience a crear su comunidad para poder compartir con sus amigos. \n\n Un saludo.");
+					Transport.send(msg);
+				} catch (MessagingException e) {
+					e.printStackTrace();
+				}
 				resp.sendRedirect("/interfazMiComunidad.jsp");
 				return;
 			}
-			req.getSession().setAttribute("samepasswords", "Las contraseñas introducidas son distintas.");
+			req.getSession().setAttribute("samepasswords", "Las contraseï¿½as introducidas son distintas.");
 			resp.sendRedirect("interfazRegistro.jsp");
 		}else{
 			Usuario user = dao.getUserByName(userName);
@@ -38,10 +56,10 @@ public class RegisterUserServlet extends HttpServlet {
 			if(user.getPassword().equals(req.getParameter("password"))){
 				resp.sendRedirect("/interfazMiComunidad.jsp");
 			}else{
-				req.getSession().setAttribute("error", "Usuario ya registrado, introduzca la contraseña correctamente.");
+				req.getSession().setAttribute("error", "Usuario ya registrado, introduzca la contraseï¿½a correctamente.");
 				resp.sendRedirect("interfazRegistro.jsp");
 			}
-			
+
 		}
 	}
 }
