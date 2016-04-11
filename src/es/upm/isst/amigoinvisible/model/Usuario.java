@@ -71,7 +71,4 @@ public class Usuario {
 	public String getUserId(){
 		return this.id;
 	}
-	public void setPassword(String newPassword){
-		this.password = newPassword;
-	}
 }
