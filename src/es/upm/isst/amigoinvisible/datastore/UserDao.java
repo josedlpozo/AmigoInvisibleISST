@@ -9,4 +9,6 @@ public interface UserDao {
 	void saveUserWithPassword(String name, String email, String password, String userId);
 	
 	Usuario getUserByName(String userName);
+	
+	void updateUser(Usuario user);
 }

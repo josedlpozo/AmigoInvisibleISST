@@ -55,4 +55,13 @@ public class UserDaoImpl implements UserDao{
 		em.persist(usuario);
 		em.close();
 	}
+
+	@Override
+	public void updateUser(Usuario user) {
+		EntityManager em = PersistenceManager.get().createEntityManager();
+		
+		em.merge(user);
+		em.close();
+		
+	}
 }

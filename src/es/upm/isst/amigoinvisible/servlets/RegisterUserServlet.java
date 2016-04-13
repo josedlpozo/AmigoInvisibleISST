@@ -14,14 +14,14 @@ public class RegisterUserServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, final HttpServletResponse resp) throws IOException {
 		UserDao dao = UserDaoImpl.getInstance();
 		String userName = req.getParameter("username");
-		System.out.println(userName);
+		//System.out.println(userName);
 		if(dao.getUserByName(userName) == null){
 			String password1 = req.getParameter("password");
 			String password2 = req.getParameter("password2");
 			if(password1.equals(password2)){
 				Random random = new Random();
 				String userId = new BigInteger(130, random).toString(32);
-				System.out.println("Register "+userName);
+				//System.out.println("Register "+userName);
 				req.getSession().setAttribute("user", userName);
 				req.getSession().setAttribute("userId", userId);
 				dao.saveUserWithPassword(userName, req.getParameter("email"), password1, userId);
@@ -32,7 +32,7 @@ public class RegisterUserServlet extends HttpServlet {
 			resp.sendRedirect("interfazRegistro.jsp");
 		}else{
 			Usuario user = dao.getUserByName(userName);
-			System.out.println("Already Register "+userName);
+			//System.out.println("Already Register "+userName);
 			req.getSession().setAttribute("user", user.getUsername());
 			req.getSession().setAttribute("userId", user.getUserId());
 			if(user.getPassword().equals(req.getParameter("password"))){
