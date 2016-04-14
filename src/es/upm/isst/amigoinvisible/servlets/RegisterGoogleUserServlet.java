@@ -45,7 +45,7 @@ public class RegisterGoogleUserServlet extends HttpServlet {
 			} catch (MessagingException e) {
 				e.printStackTrace();
 			}
-			resp.sendRedirect("/interfazMiComunidad.jsp");
+			resp.sendRedirect("/interfazmiscomunidades.html");
 			return;
 		}
 		

@@ -5,18 +5,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Ingresar en tu cuenta</title>
+
+<title>Mis comunidades</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script type="text/javascript">var v1=6;</script>
-  
-    <script type="text/javascript" src="JS/navbarJS.js"></script>
-    <link rel="stylesheet" type="text/css" href="CSS/interfazregistroCSS.css">
- <!- <link rel="stylesheet" type="text/css" href="CSS\index.css"> -->
+
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
@@ -37,9 +33,8 @@
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 
-<script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<!-- // <script type="text/javascript" src="JS/navbarJS.js"></script> -->
+
+
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <!-- Latest compiled and minified CSS -->
@@ -50,9 +45,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 
 <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
 <link href="estiloindex/css/bootstrap.min.css" rel="stylesheet">
@@ -60,13 +53,11 @@
 <link href="estiloindex/css/freelancer.css" rel="stylesheet">
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<!-- // <script type="text/javascript" src="estiloindex/js/freelancer.js"></script>   -->
 <script type="text/javascript" src="estiloindex/js/contact_me.js"></script>
 <script type="text/javascript"
 	src="estiloindex/js/jqBootstrapValidation.js"></script>
 <script type="text/javascript" src="estiloindex/js/cbpAnimatedHeader.js"></script>
 <script type="text/javascript" src="estiloindex/js/classie.js"></script>
-<script type="text/javascript" src="JS/interfazregistroJS.js"></script>
 
 <!-- Custom Fonts -->
 <link href="estiloindex/font-awesome/css/font-awesome.min.css"
@@ -80,9 +71,9 @@
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-                            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-                            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-            <![endif]-->
+														<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+														<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+						<![endif]-->
 
 
 </head>
@@ -107,65 +98,53 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav ">
 				<li class="hidden"><a href="#page-top"></a></li>
-				<li class="page-scroll"><a class="active"
-					href="interfazregistro.html">Registro</a></li>
-				<li class="page-scroll"><a href="interfazlogin.html">Entrar</a>
-				</li>
+				<li class="page-scroll, active"><a href="/comunidades">Mis
+						comunidades</a></li>
+				<li class="page-scroll"><a href="interfazmicuenta.html">Mi
+						cuenta</a></li>
+				<li class="page-scroll"><a href="interfazcambiarpassword.html">Cambiar
+						contraseña</a></li>
+				<li class="page-scroll"><a href="/salir">Salir</a></li>
 
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
 	</div>
 	<!-- /.container-fluid --> </nav>
-
 	<header>
 	<div class="container">
-		<!--onsubmit="return confirmarCampos()"  -->
-		<form action="/login">
-			<div class="container_content">
-				<h1>Acceso a miembros</h1>
-				<fieldset>
-					<form>
-						<div class='rellenar'>
-							<label>Nombre de usuario</label>
-							<div class="clear"></div>
-							<input class="input" id="name" name="name" type="text"
-								maxlength="256" value="" required>
-							<div class="clear"></div>
-							<label for="password">Contraseña</label>
-							<div class="clear"></div>
-							<input class="input" id="password" name="password"
-								type="password" maxlength="18" required>
-							<div class="clear05"></div>
-							<br> <label><c:out value="${password}" /></label> <label><c:out
-									value="${usernameNoExiste}" /></label>
-						</div>
-						<br>
-					</form>
-				</fieldset>
-				<br>
-				<div id='submit' class='outerDiv' align="center">
-					<input align="center" type="submit" value="Login"
-						class="btn btn-default" style="background-color: #2c3e50" />
-				</div>
-				<br> <b><a id='entrar' class='entrar'
-					href="/account/forgot-password">¿Olvido su contraseña?</a> </b> <br>
-				<b><a id='entrar' class='entrar' href="interfazregistro.html">Crear
-						una cuenta</a> </b>
+		<h1>Mis comunidades</h1>
+		<hr class="star-light">
+		<p>En este punto, al cargar las comunidades del usuario, aqui le
+			aparecería una lista con enlaces a las paginas concretas de cada una</p>
+		<div id="listacomunidades">
+			<ul>
+				<c:forEach items="${comunidades}" var="comunidad">
+					<li class="page-scroll, active"><a
+						href="interfazmicomunidad.html"><c:out
+								value="${comunidad.nombre}" /></a></li>
+				</c:forEach>
 
-			</div>
-		</form>
-		<form action="/registerWithGoogle">
-			<br>
-			<div id='submit' class='outerDiv' align="center">
-				<input align="center" type="submit" value="Login with Google"
-					class="btn btn-default" style="background-color: #2c3e50" />
-			</div>
-		</form>
+			</ul>
+		</div>
 	</div>
 	</header>
+
+	<section id="about">
+	<div class="container">
+		<div class="row text-center">
+			<h1>Crea una nueva comunidad</h1>
+			<hr class="star-primary">
+			<p>Crea una comunidad e invita a todos tus amigos a participar!!</p>
+			<input align="center"
+				onclick="location='interfazRegistroComunidad.jsp'"
+				value="Crea tu comunidad!!" class="btn btn-default"
+				style="background-color: #2c3e50" /> <br> <br>
+		</div>
+	</div>
+	</section>
 
 	<footer class="text-center">
 	<div class="footer-below">

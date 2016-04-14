@@ -56,7 +56,7 @@
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="index.html">AMIGO INVISIBLE</a>
+							<a class="navbar-brand" href="/index">AMIGO INVISIBLE</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -66,7 +66,7 @@
 											<a href="#page-top"></a>
 									</li>
 									<li class="page-scroll, active">
-											<a href="interfazmiscomunidades.html">Mis comunidades</a>
+											<a href="/comunidades">Mis comunidades</a>
 									</li>
 									<li  class="page-scroll">
 											<a  href="interfazmicuenta.html">Mi cuenta</a>
@@ -75,7 +75,7 @@
 											<a href="interfazcambiarpassword.html">Cambiar contraseña</a>
 									</li>
 									<li class="page-scroll">
-											<a href="index.html">Salir</a>
+											<a href="/salir">Salir</a>
 									</li>           
 													 
 							</ul>

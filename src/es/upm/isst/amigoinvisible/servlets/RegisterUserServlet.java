@@ -31,7 +31,7 @@ public class RegisterUserServlet extends HttpServlet {
 				String userId = new BigInteger(130, random).toString(32);
 				System.out.println("Register "+userName);
 				req.getSession().setAttribute("user", userName);
-				req.getSession().setAttribute("userId", userId);
+				req.getSession().setAttribute("id", userId);
 				dao.saveUserWithPassword(userName, req.getParameter("email"), password1, userId);
 				Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
 				try {
@@ -43,7 +43,7 @@ public class RegisterUserServlet extends HttpServlet {
 				} catch (MessagingException e) {
 					e.printStackTrace();
 				}
-				resp.sendRedirect("/interfazMiComunidad.jsp");
+				resp.sendRedirect("/comunidades");
 				return;
 			}
 			req.getSession().setAttribute("samepasswords", "Las contrase�as introducidas son distintas.");
@@ -52,9 +52,9 @@ public class RegisterUserServlet extends HttpServlet {
 			Usuario user = dao.getUserByName(userName);
 			System.out.println("Already Register "+userName);
 			req.getSession().setAttribute("user", user.getUsername());
-			req.getSession().setAttribute("userId", user.getUserId());
+			req.getSession().setAttribute("id", user.getUserId());
 			if(user.getPassword().equals(req.getParameter("password"))){
-				resp.sendRedirect("/interfazMiComunidad.jsp");
+				resp.sendRedirect("/comunidades");
 			}else{
 				req.getSession().setAttribute("error", "Usuario ya registrado, introduzca la contrase�a correctamente.");
 				resp.sendRedirect("interfazRegistro.jsp");

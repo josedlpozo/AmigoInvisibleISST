@@ -63,7 +63,7 @@
 														<span class="icon-bar"></span>
 														<span class="icon-bar"></span>
 												</button>
-												<a class="navbar-brand" href="index.html">AMIGO INVISIBLE</a>
+												<a class="navbar-brand" href="/index">AMIGO INVISIBLE</a>
 										</div>
 
 										<!-- Collect the nav links, forms, and other content for toggling -->
@@ -95,24 +95,18 @@
 			<form onsubmit="return confirmarCampos()">
 
 				<h1>Nombre de la comunidad</h1>
-					<input type="text" id="nombre_comunidad" required />
+					<input type="text" id="nombre_comunidad" name="nombre_comunidad" required />
 					<h3>Contraseña de su comunidad</h3>
 					<p>Con esta contraseña sus amigos podran unirse a su comunidad</p>
-						<input type="password" id="pass_comunidad" required/>
+						<input type="password" id="pass_comunidad" name="pass_comunidad" required/>
 					<p>Confirme contraseña</p>
-						<input type="password" id="pass_comunidad2" required/>
+						<input type="password" id="pass_comunidad2" name="pass_comunidad2" required/>
 				
 				<h1>Participantes</h1>
-					<p>Introduzca los nombres de usuario de sus amigos</p>
+					<p>Introduzca los emails de sus amigos</p>
 						<div id="part" >
 							<a onclick="AgregarNombre();">[+] Agregar</a> </br>
 							<input type="text" size="20" id="nombre_1" name="nombre_1"/></br>
-							
-						</div>
-					<h3>Invita a tus amigos a unirse</h3>
-						<div id="correo">
-							<a  onclick="AgregarCorreo();" >[+] Agregar</a> </br>
-							<input type="email" size="20" id="email_1" name="email_1"/> </br>
 							
 						</div>
 						</br>

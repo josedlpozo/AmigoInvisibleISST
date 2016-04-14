@@ -2,8 +2,7 @@ var nextnombre = 1;
 	function AgregarNombre(){
 
 	nextnombre++;
-	campo = '<input type="text" size="20" id="nombre_' + nextnombre + ' name="nombre_' + nextnombre + ' /></br>';
-	$("#part").append(campo);
+	document.getElementById("nombre_"+nextnombre).style.display = "initial";
 
 	}
 

@@ -1,5 +1,6 @@
 package es.upm.isst.amigoinvisible.model;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.IdentityType;
@@ -13,7 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Usuario {
+public class Usuario implements Serializable{
 	
 	@Id
 	private String id;
