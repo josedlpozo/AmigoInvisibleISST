@@ -13,18 +13,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
   
-      <!-- Latest compiled and minified CSS -->
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<!-- // <script type="text/javascript" src="JS/navbarJS.js"></script> -->
-		 <!-- Latest compiled and minified CSS -->
+	
+	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
@@ -46,44 +47,13 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 					</head>
 <body id="page-top">
-	<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="container">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header page-scroll">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-									<span class="sr-only">Toggle navigation</span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="/index">AMIGO INVISIBLE</a>
-					</div>
 
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav ">
-									<li class="hidden">
-											<a href="#page-top"></a>
-									</li>
-									<li class="page-scroll, active">
-											<a href="/comunidades">Mis comunidades</a>
-									</li>
-									<li  class="page-scroll">
-											<a  href="interfazmicuenta.html">Mi cuenta</a>
-									</li>  
-									<li class="page-scroll">
-											<a href="interfazcambiarpassword.html">Cambiar contraseña</a>
-									</li>
-									<li class="page-scroll">
-											<a href="/salir">Salir</a>
-									</li>           
-													 
-							</ul>
-					</div>
-																	<!-- /.navbar-collapse -->
-			</div>
-									<!-- /.container-fluid -->
-	</nav>
+
+
+	<%@ include file="/navbar.html" %>
+	
+	
+	
 	<section id="about">
 		<div class="container text-center">
 			<fieldset>
@@ -97,6 +67,9 @@
 			</fieldset>
 		</div>
 	</section>
+	
+	
+	
 	<header>
 		<div class="container">
 			<fieldset>
@@ -111,6 +84,9 @@
 			</fieldset>
 		</div>
 	</header>
+	
+	
+	
 	<section id="about">
 		<div class="container text-center">
 			<fieldset>
@@ -122,6 +98,9 @@
 			</fieldset>
 		</div>
 	</section>
+	
+	
+	
 	<header>
 		<div class="container">
 			<fieldset>
@@ -139,6 +118,9 @@
 			</fieldset>
 		</div>
 	</header>
+	
+	
+	
 	<section id="about">
 		<div class="container text-center">
 			<fieldset>
@@ -150,8 +132,13 @@
 		</div>
 	</section>
 
+
+
 	<br>
-	<br>		
+	<br>
+			
+			
+			
 	<footer class="text-center">
 		<div class="footer-below">
 			<div class="container">

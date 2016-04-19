@@ -54,6 +54,7 @@ public class RegisterUserServlet extends HttpServlet {
 			System.out.println("Already Register "+userName);
 			req.getSession().setAttribute("user", user.getUsername());
 			req.getSession().setAttribute("id", user.getUserId());
+			req.getSession().setAttribute("user_email",  req.getParameter("email"));
 			if(user.getPassword().equals(req.getParameter("password"))){
 				resp.sendRedirect("/comunidades");
 			}else{

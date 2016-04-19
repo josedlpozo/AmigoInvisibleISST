@@ -79,12 +79,12 @@
 							<li class="hidden">
 								<a href="#page-top"></a>
 							</li>
-							<li class="page-scroll">
-								<a class="active" href="interfazregistro.html">Registro</a>
-							</li>
-							<li class="page-scroll">
-								<a href="interfazlogin.html">Entrar</a>
-							</li>			
+					<li class="page-scroll">
+                        <a href="/interfazRegistro.jsp">Registro</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="/interfazLogin.jsp">Entrar</a>
+                    </li>	
 						</ul>
 					</div>
 											<!-- /.navbar-collapse -->
