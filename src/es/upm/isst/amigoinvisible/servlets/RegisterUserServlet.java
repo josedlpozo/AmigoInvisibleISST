@@ -32,6 +32,7 @@ public class RegisterUserServlet extends HttpServlet {
 				System.out.println("Register "+userName);
 				req.getSession().setAttribute("user", userName);
 				req.getSession().setAttribute("id", userId);
+				req.getSession().setAttribute("user_email",  req.getParameter("email"));
 				dao.saveUserWithPassword(userName, req.getParameter("email"), password1, userId);
 				Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
 				try {

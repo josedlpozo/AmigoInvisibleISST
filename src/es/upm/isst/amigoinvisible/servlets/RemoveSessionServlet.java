@@ -10,7 +10,9 @@ public class RemoveSessionServlet extends HttpServlet{
 	
 	public void doGet(HttpServletRequest req, final HttpServletResponse resp) throws IOException {
 		req.getSession().removeAttribute("user");
-		req.getSession().removeAttribute("userId");
+		req.getSession().removeAttribute("id");
+		req.getSession().removeAttribute("user_email");
+		
 		
 		resp.sendRedirect("/index.html");
 		return;

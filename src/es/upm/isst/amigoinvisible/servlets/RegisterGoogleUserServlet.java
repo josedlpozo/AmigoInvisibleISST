@@ -33,7 +33,8 @@ public class RegisterGoogleUserServlet extends HttpServlet {
 			user = req.getUserPrincipal().getName();
 			userId = userService.getCurrentUser().getUserId();
 			req.getSession().setAttribute("user", user);
-			req.getSession().setAttribute("userId", userId);
+			req.getSession().setAttribute("id", userId);
+			req.getSession().setAttribute("user_email", userService.getCurrentUser().getEmail());
 			dao.saveUserWithPassword(user, userService.getCurrentUser().getEmail(), "", userId);
 			Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
 			try {

@@ -18,6 +18,7 @@ public class LoginUserServlet extends HttpServlet {
 			if(req.getParameter("password").equals(dao.getUserByName(userName).getPassword())){
 				req.getSession().setAttribute("user", userName);
 				req.getSession().setAttribute("id", dao.getUserByName(userName).getUserId());
+				req.getSession().setAttribute("user_email", dao.getUserByName(userName).getEmail());
 				resp.sendRedirect("/comunidades");
 				return;
 			}else{
