@@ -55,7 +55,7 @@ public class UserDaoImpl implements UserDao{
 		em.persist(usuario);
 		em.close();
 	}
-	
+
 	@Override
 	public Usuario getUserByEmail(String email) {
 		EntityManager em = PersistenceManager.get().createEntityManager();
@@ -73,5 +73,14 @@ public class UserDaoImpl implements UserDao{
 		}
 
 		return null;
+	}
+
+	@Override
+	public void updateUser(Usuario user) {
+		EntityManager em = PersistenceManager.get().createEntityManager();
+
+		em.merge(user);
+		em.close();
+
 	}
 }

@@ -32,6 +32,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>ComunidadesServlet</servlet-name>
 		<servlet-class>es.upm.isst.amigoinvisible.servlets.ComunidadesServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ChangePasswordServlet</servlet-name>
+		<servlet-class>es.upm.isst.amigoinvisible.servlets.ChangePasswordServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>RegisterLoginUser</servlet-name>
 		<url-pattern>/register</url-pattern>
@@ -59,6 +63,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-mapping>
 		<servlet-name>ComunidadesServlet</servlet-name>
 		<url-pattern>/comunidades</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ChangePasswordServlet</servlet-name>
+		<url-pattern>/cambiocontrasena</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>

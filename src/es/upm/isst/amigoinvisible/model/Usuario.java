@@ -15,10 +15,10 @@ import javax.persistence.Id;
 
 @Entity
 public class Usuario implements Serializable{
-	
+
 	@Id
 	private String id;
-	
+
 	@Basic
 	private String username;
 	@Basic
@@ -33,14 +33,14 @@ public class Usuario implements Serializable{
 		this.email = email;
 		this.id = userId;
 	}
-	
+
 	public Usuario(String username, String email, String password, String userId) {
 		this.username = username;
 		this.email = email;
 		this.id = userId;
 		this.password = password;
 	}
-	
+
 	public String getPassword(){
 		return this.password;
 	}
@@ -64,12 +64,16 @@ public class Usuario implements Serializable{
 	public List<String> getDeseos() {
 		return this.deseos;
 	}
-	
+
 	public void setId(String userId){
 		this.id = userId;
 	}
-	
+
 	public String getUserId(){
 		return this.id;
+	}
+
+	public void setPassword(String newPassword){
+		this.password = newPassword;
 	}
 }
