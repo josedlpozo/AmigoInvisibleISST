@@ -89,7 +89,7 @@
 			<ul class="nav navbar-nav ">
 				<li class="page-scroll"><a href="/comunidades">Mis
 						comunidades</a></li>
-				<li class="page-scroll"><a href="interfazmicuenta.html">Mi
+				<li class="page-scroll"><a href="interfazMiCuenta.jsp">Mi
 						cuenta</a></li>
 				<li class="page-scroll"><a href="interfazcambiarpassword.html">Cambiar
 						contraseña</a></li>
