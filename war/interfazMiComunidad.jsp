@@ -58,7 +58,7 @@
 		<div class="container text-center">
 			<fieldset>
 				<div id="infopersonal"></div>
-					<h1>Nombre de mi comunidad</h1>
+					<h1><c:out value="${nombrecomunidad}"/></h1>
 						<h2><c:out value="${user}"/></h2>
 							<a href="interfazmilistadedeseos.html">Mi lista de deseos</a><br>
 							<a href="interfazideasderegalo.html">Ideas para regalar</a>

@@ -74,12 +74,21 @@
 														<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 														<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 						<![endif]-->
+	<script>
 
-
+		function setNombre(name) {  		
+  		 document.getElementById("nombreComunidad").value = name;
+  		} 
+ 	</script>
+	<% if (request.getParameter("nombreComunidad") != null){
+		//<c:set var="salary" scope="session" value="${2000*2}"/>
+		String nombrecomunidad = request.getParameter("nombreComunidad");
+	}
+	%>
 </head>
 
 <body>
-
+	
 
 	<%@ include file="/navbar.html" %>
 	
@@ -90,14 +99,18 @@
 		<p>En este punto, al cargar las comunidades del usuario, aqui le
 			aparecería una lista con enlaces a las paginas concretas de cada una</p>
 		<div id="listacomunidades">
-			<ul>
+			<form action="/micomunidad" method="get">
 				<c:forEach items="${comunidades}" var="comunidad">
-					<li class="page-scroll, active"><a
-						href="interfazmicomunidad.html"><c:out
-								value="${comunidad.nombre}" /></a></li>
+						<input type="submit" 
+							name="<c:out value="${comunidad.nombre}" />"
+							value="<c:out value="${comunidad.nombre}" />" 
+							style="background-color: #2c3e50" 
+							class="btn btn-default"
+						/>
+						<br>
+						<br>
 				</c:forEach>
-
-			</ul>
+			</form>
 		</div>
 	</div>
 	</header>
