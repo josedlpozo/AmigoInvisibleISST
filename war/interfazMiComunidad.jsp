@@ -81,12 +81,15 @@
 									<p class="oculto"><c:out value="${sorteo}" /></p>
 								</c:if>
 					</div>
-					<c:if test="${not empty gestor}"> 
-						 <input type="submit" 
-						 	value="Realizar sorteo"
-							style="background-color: #2c3e50" 
-							class="btn btn-default"
-						/>
+					<c:if test="${not empty gestor}">
+						<form action="/sorteo" method="get"> 
+							 <input type="submit" 
+							 	name="<c:out value="${comunidad.nombre}" />"
+							 	value="Realizar sorteo"
+								style="background-color: #2c3e50" 
+								class="btn btn-default"
+							/>
+						</form>
 					</c:if> 	
 				</div>
 				<hr class="star-light">

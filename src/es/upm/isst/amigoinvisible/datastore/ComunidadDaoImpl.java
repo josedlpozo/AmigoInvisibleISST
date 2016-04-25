@@ -78,4 +78,12 @@ public class ComunidadDaoImpl implements ComunidadDao{
 		return comunidadByUser;
 	}
 
+	@Override
+	public void actualizaComunidad(Comunidad comunidad) {
+		EntityManager em = PersistenceManager.get().createEntityManager();
+
+		em.merge(comunidad);
+		em.close();
+	}
+
 }

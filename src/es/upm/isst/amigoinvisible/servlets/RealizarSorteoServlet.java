@@ -1,7 +1,9 @@
 package es.upm.isst.amigoinvisible.servlets;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +16,7 @@ import es.upm.isst.amigoinvisible.datastore.UserDaoImpl;
 import es.upm.isst.amigoinvisible.model.Comunidad;
 import es.upm.isst.amigoinvisible.model.Usuario;
 
-public class MiComunidadServlet extends HttpServlet {
+public class RealizarSorteoServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, final HttpServletResponse resp) throws IOException {
 		if(req.getSession().getAttribute("user") == null){
 			resp.sendRedirect("/index.html");
@@ -28,38 +30,37 @@ public class MiComunidadServlet extends HttpServlet {
 		List<Comunidad> comunidades = dao.getComunidadesByUser(user.getUserId());
 		Comunidad comunidad = null;
 
-		for (Comunidad i: comunidades) {
-			if (req.getParameter(i.getNombre()) != null) {
-				comunidad=i;
-				System.out.println(req.getParameter(i.getNombre()));
-			}
+		comunidad = dao.getComunidadByName(req.getSession().getAttribute("nombrecomunidad").toString());
+
+		List<String> usuariosARegalar = comunidad.getUsuariosId();
+		usuariosARegalar.add(comunidad.getGestorId());
+		
+		List<String> usuariosQRegalan = usuariosARegalar;
+		
+		HashMap<String, String> sorteo = new HashMap<>();
+		
+		while(!usuariosARegalar.isEmpty()){
+			Random r = new Random();
+			int low = 0;
+			int high = usuariosARegalar.size()-1;
+			int random1 = r.nextInt(high-low) + low;
+			
+			String regala = usuariosQRegalan.get(random1);
+			
+			int random2 = r.nextInt(high-low) + low;
+			
+			String regalado = usuariosARegalar.get(random2);
+			
+			sorteo.put(regala, regalado);
+			
+			usuariosQRegalan.remove(random1);
+			usuariosARegalar.remove(random2);
 		}
 
-		if (comunidad == null){
-			req.getSession().setAttribute("nombrecomunidad", "Prueba");
-		}
-		else{
-			req.getSession().setAttribute("nombrecomunidad", comunidad.getNombre());
-		}
+		comunidad.setSorteo(sorteo);
+		
+		dao.actualizaComunidad(comunidad);
 
-		if(user.getUserId().equals(comunidad.getGestorId())){
-			req.getSession().setAttribute("gestor", true);
-		}else{
-			req.getSession().setAttribute("gestor", false);
-		}
-
-		if(comunidad.getSorteo() != null){
-			Usuario usuarioARegalar = userdao.getUserByID(comunidad.getSorteo().get(user.getUserId()));
-			if(comunidad.getSorteo().isEmpty() || usuarioARegalar == null){
-				req.getSession().setAttribute("sorteo", "Aún no se ha realizado ningún sorteo");
-			}else{
-				req.getSession().setAttribute("sorteo", usuarioARegalar.getUsername());
-			}
-		}
-
-		System.out.println(userName);
-
-		resp.sendRedirect("/interfazMiComunidad.jsp");
+		resp.sendRedirect("/micomunidad");
 	}
 }
-

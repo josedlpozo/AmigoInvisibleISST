@@ -40,6 +40,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>MiComunidadServlet</servlet-name>
 		<servlet-class>es.upm.isst.amigoinvisible.servlets.MiComunidadServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>RealizarSorteoServlet</servlet-name>
+		<servlet-class>es.upm.isst.amigoinvisible.servlets.RealizarSorteoServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>RegisterLoginUser</servlet-name>
 		<url-pattern>/register</url-pattern>
@@ -75,6 +79,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-mapping>
 		<servlet-name>MiComunidadServlet</servlet-name>
 		<url-pattern>/micomunidad</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RealizarSorteoServlet</servlet-name>
+		<url-pattern>/sorteo</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>
