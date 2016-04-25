@@ -83,4 +83,23 @@ public class UserDaoImpl implements UserDao{
 		em.close();
 
 	}
+
+	@Override
+	public Usuario getUserByID(String userId) {
+		EntityManager em = PersistenceManager.get().createEntityManager();
+
+		Query q = em.createQuery("select t from Usuario t");
+
+		List<Usuario> users = q.getResultList();
+
+		em.close();
+
+		if(users != null){
+			for(Usuario u : users){
+				if(u.getUserId().equals(userId)) return u;
+			}
+		}
+		
+		return null;
+	}
 }

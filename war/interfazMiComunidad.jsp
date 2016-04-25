@@ -75,10 +75,19 @@
 			<fieldset>
 				<div id="nombres">
 					<div id="oculto">
-						<h2>Ver a quien tienes que regalar </h2><p>(o fecha de sorteo)<p>
-								<p class="oculto">Juan GarcÃ­a</p>
-					</div>	
-					<p>Al gestor debe aparecerle la opciÃ³n de iniciar sorteo</p>
+						<h2>A quien tienes que regalar </h2>
+								<!--  TODO  -->
+								<c:if test="${not empty sorteo}">
+									<p class="oculto"><c:out value="${sorteo}" /></p>
+								</c:if>
+					</div>
+					<c:if test="${not empty gestor}"> 
+						 <input type="submit" 
+						 	value="Realizar sorteo"
+							style="background-color: #2c3e50" 
+							class="btn btn-default"
+						/>
+					</c:if> 	
 				</div>
 				<hr class="star-light">
 			</fieldset>

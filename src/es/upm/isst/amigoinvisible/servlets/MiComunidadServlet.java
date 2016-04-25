@@ -20,30 +20,45 @@ public class MiComunidadServlet extends HttpServlet {
 			resp.sendRedirect("/index.html");
 			return;
 		}
-		
+
 		String userName = (String) req.getSession().getAttribute("user");
 		ComunidadDao dao = ComunidadDaoImpl.getInstance();
 		UserDao userdao = UserDaoImpl.getInstance();
 		Usuario user = userdao.getUserByName(userName);
 		List<Comunidad> comunidades = dao.getComunidadesByUser(user.getUserId());
 		Comunidad comunidad = null;
-		
-		 for (Comunidad i: comunidades) {
-			 if (req.getParameter(i.getNombre()) != null) {
-		            comunidad=i;
-		            System.out.println(req.getParameter(i.getNombre()));
-		    }
-		 }
-		
+
+		for (Comunidad i: comunidades) {
+			if (req.getParameter(i.getNombre()) != null) {
+				comunidad=i;
+				System.out.println(req.getParameter(i.getNombre()));
+			}
+		}
+
 		if (comunidad == null){
 			req.getSession().setAttribute("nombrecomunidad", "Prueba");
 		}
 		else{
 			req.getSession().setAttribute("nombrecomunidad", comunidad.getNombre());
 		}
-	
+
+		if(user.getUserId().equals(comunidad.getGestorId())){
+			req.getSession().setAttribute("gestor", true);
+		}else{
+			req.getSession().setAttribute("gestor", false);
+		}
+
+		if(comunidad.getSorteo() != null){
+			if(comunidad.getSorteo().isEmpty()){
+				req.getSession().setAttribute("sorteo", "Aún no se ha realizado ningún sorteo");
+			}else{
+				Usuario usuarioARegalar = userdao.getUserByID(comunidad.getSorteo().get(user.getUserId()));
+				req.getSession().setAttribute("sorteo", usuarioARegalar.getUsername());
+			}
+		}
+
 		System.out.println(userName);
-		
+
 		resp.sendRedirect("/interfazMiComunidad.jsp");
 	}
 }
