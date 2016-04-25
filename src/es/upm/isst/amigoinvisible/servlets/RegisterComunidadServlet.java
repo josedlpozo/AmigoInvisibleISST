@@ -43,8 +43,7 @@ public class RegisterComunidadServlet extends HttpServlet{
 		int num = 1;
 		while(!req.getParameter("nombre_"+num).toString().isEmpty()){
 			Usuario user = userDao.getUserByEmail(req.getParameter("nombre_"+num));
-			if(user != null){
-				System.out.println("xxxx"+num);
+			if(user != null){	
 				users.add(user.getUserId());
 			}else{
 				String email = req.getParameter("nombre_"+num);
@@ -74,7 +73,6 @@ public class RegisterComunidadServlet extends HttpServlet{
 				}
 				users.add(userId);
 			}
-			System.out.println("xxxx2");
 			num++;
 		}
 		String comunidadId = ""+System.currentTimeMillis();

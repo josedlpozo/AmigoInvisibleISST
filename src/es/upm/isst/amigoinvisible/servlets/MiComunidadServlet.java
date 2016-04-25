@@ -33,6 +33,11 @@ public class MiComunidadServlet extends HttpServlet {
 				comunidad=i;
 				System.out.println(req.getParameter(i.getNombre()));
 			}
+			if(req.getSession().getAttribute("nombrecomunidad") != null){
+				if(i.getNombre().equals(req.getSession().getAttribute("nombrecomunidad").toString())){
+					comunidad = i;
+				}
+			}
 		}
 
 		if (comunidad == null){

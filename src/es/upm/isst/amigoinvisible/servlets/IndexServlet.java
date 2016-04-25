@@ -11,7 +11,7 @@ public class IndexServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, final HttpServletResponse resp) throws IOException {
 		System.out.println("ENTRA");
 		if(req.getSession().getAttribute("user") != null){
-			resp.sendRedirect("/interfazmiscomunidades.html");
+			resp.sendRedirect("/interfazMisComunidades.jsp");
 			return;
 		}else{
 			resp.sendRedirect("/index.html");

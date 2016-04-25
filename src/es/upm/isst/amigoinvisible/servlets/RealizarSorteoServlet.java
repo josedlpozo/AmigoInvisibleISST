@@ -1,6 +1,7 @@
 package es.upm.isst.amigoinvisible.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -32,33 +33,38 @@ public class RealizarSorteoServlet extends HttpServlet {
 
 		comunidad = dao.getComunidadByName(req.getSession().getAttribute("nombrecomunidad").toString());
 
-		List<String> usuariosARegalar = comunidad.getUsuariosId();
+		List<String> usuariosARegalar = new ArrayList<>(comunidad.getUsuariosId());
 		usuariosARegalar.add(comunidad.getGestorId());
-		
-		List<String> usuariosQRegalan = usuariosARegalar;
-		
+
+		List<String> usuariosQRegalan = new ArrayList<>(usuariosARegalar);
+
 		HashMap<String, String> sorteo = new HashMap<>();
-		
+
+		for(String s : usuariosARegalar){
+			System.out.println(s);
+		}
+
 		while(!usuariosARegalar.isEmpty()){
 			Random r = new Random();
-			int low = 0;
-			int high = usuariosARegalar.size()-1;
-			int random1 = r.nextInt(high-low) + low;
-			
+			int random1 = r.nextInt(usuariosARegalar.size());
+
+
 			String regala = usuariosQRegalan.get(random1);
-			
-			int random2 = r.nextInt(high-low) + low;
-			
+
+			int random2 = r.nextInt(usuariosARegalar.size());
+
 			String regalado = usuariosARegalar.get(random2);
-			
-			sorteo.put(regala, regalado);
-			
-			usuariosQRegalan.remove(random1);
-			usuariosARegalar.remove(random2);
+
+			if(!regalado.equals(regala)){
+				sorteo.put(regala, regalado);
+
+				usuariosQRegalan.remove(random1);
+				usuariosARegalar.remove(random2);
+			}
 		}
 
 		comunidad.setSorteo(sorteo);
-		
+
 		dao.actualizaComunidad(comunidad);
 
 		resp.sendRedirect("/micomunidad");
