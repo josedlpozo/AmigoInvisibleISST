@@ -3,9 +3,18 @@ package es.upm.isst.amigoinvisible.servlets;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 import java.util.Random;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -61,6 +70,27 @@ public class RealizarSorteoServlet extends HttpServlet {
 				usuariosQRegalan.remove(random1);
 				usuariosARegalar.remove(random2);
 			}
+		}
+		
+		Iterator iter = (Iterator) sorteo.keySet().iterator();
+
+		while(iter.hasNext()) {
+
+		    Map.Entry entry = (Map.Entry) iter.next();
+		    Usuario usuarioQRegala = userdao.getUserByID(entry.getKey().toString());
+		    Usuario usuarioARegalar = userdao.getUserByID(entry.getValue().toString());
+		    
+		    Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
+			try {
+				msg.setFrom(new InternetAddress("amigo@amigoinvisibleisst.appspotmail.com", "Sistema de registro Amigo Invisible"));
+				msg.addRecipient(Message.RecipientType.TO,  new InternetAddress(usuarioQRegala.getEmail(), "Sorteo "+comunidad.getNombre()));
+				msg.setSubject("Realizado sorteo.");
+				msg.setText("Hola "+usuarioQRegala.getUsername()+"\n\nTras el sorteo, le toca regalar a "+usuarioARegalar.getUsername()+"\n\nUn saludo.");
+				Transport.send(msg);
+			} catch (MessagingException e) {
+				e.printStackTrace();
+			}
+
 		}
 
 		comunidad.setSorteo(sorteo);
