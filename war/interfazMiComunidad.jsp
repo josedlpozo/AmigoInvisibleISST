@@ -60,8 +60,8 @@
 				<div id="infopersonal"></div>
 					<h1><c:out value="${nombrecomunidad}"/></h1>
 						<h2><c:out value="${user}"/></h2>
-							<a href="interfazmilistadedeseos.html">Mi lista de deseos</a><br>
-							<a href="interfazideasderegalo.html">Ideas para regalar</a>
+							<a id="Mi lista de deseos" href="interfazmilistadedeseos.html">Mi lista de deseos</a><br>
+							<a id="Ideas para regalar" href="interfazideasderegalo.html">Ideas para regalar</a>
 				</div>
 				<hr class="star-primary">
 			</fieldset>

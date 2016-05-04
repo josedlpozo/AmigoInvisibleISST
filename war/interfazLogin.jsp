@@ -112,10 +112,10 @@
 					<a href="#page-top"></a>
 				</li>
 				<li class="page-scroll">
-                        <a href="/interfazRegistro.jsp">Registro</a>
+                        <a id="Registro" href="/interfazRegistro.jsp">Registro</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="/interfazLogin.jsp">Entrar</a>
+                        <a id="Entrar" href="/interfazLogin.jsp">Entrar</a>
                     </li>
 
 			</ul>
