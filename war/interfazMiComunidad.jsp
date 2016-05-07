@@ -84,7 +84,7 @@
 					<c:if test="${not empty gestor}">
 						<form action="/sorteo" method="get"> 
 							 <input type="submit" 
-							 	name="<c:out value="${comunidad.nombre}" />"
+							 	name="Realizar sorteo"
 							 	value="Realizar sorteo"
 								style="background-color: #2c3e50" 
 								class="btn btn-default"
