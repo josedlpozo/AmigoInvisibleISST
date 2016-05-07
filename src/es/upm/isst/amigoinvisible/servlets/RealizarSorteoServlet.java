@@ -72,11 +72,11 @@ public class RealizarSorteoServlet extends HttpServlet {
 			}
 		}
 		
-		Iterator iter = (Iterator) sorteo.keySet().iterator();
+		Iterator iter = (Iterator) sorteo.entrySet().iterator();
 
 		while(iter.hasNext()) {
-
-		    Map.Entry entry = (Map.Entry) iter.next();
+			Map.Entry entry = (Map.Entry) iter.next();
+		    System.out.println(entry);
 		    Usuario usuarioQRegala = userdao.getUserByID(entry.getKey().toString());
 		    Usuario usuarioARegalar = userdao.getUserByID(entry.getValue().toString());
 		    
