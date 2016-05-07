@@ -32,13 +32,6 @@ public class ComunidadDaoImpl implements ComunidadDao{
 	}
 
 	@Override
-	public void actualizaComunidad(String name, String gestorId, String password, List<String> usuariosId,
-			String comunidadId) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public Comunidad getComunidadByName(String comunidadName) {
 		EntityManager em = PersistenceManager.get().createEntityManager();
 
