@@ -33,25 +33,30 @@ public class ComunidadDaoImplTest {
 	@Test
 	public void testGuardarComunidad() {
 		ComunidadDao dao = ComunidadDaoImpl.getInstance();
+		
 		List<String> userIds = new ArrayList<>();
 		for(int i = 0; i < 4; i++){
 			String id = String.valueOf(System.currentTimeMillis());
 			userIds.add(id);
 		}
+		
 		String gestorId = String.valueOf(System.currentTimeMillis());
 		Comunidad comunidad = new Comunidad("comunidad", gestorId, "1234", userIds);
 		dao.guardarComunidad(comunidad.getNombre(), comunidad.getGestorId(), "1234", userIds, String.valueOf(System.currentTimeMillis()));
+		
 		assertEquals("comunidad", comunidad.getNombre());
 	}
 
 	@Test
 	public void testActualizaComunidad() {
 		ComunidadDao dao = ComunidadDaoImpl.getInstance();
+		
 		List<String> userIds = new ArrayList<>();
 		for(int i = 0; i < 4; i++){
 			String id = String.valueOf(System.currentTimeMillis());
 			userIds.add(id);
 		}
+		
 		String gestorId = String.valueOf(System.currentTimeMillis());
 		String comunidadId = String.valueOf(System.currentTimeMillis());
 		Comunidad comunidad = new Comunidad("comunidad", gestorId, "1234", userIds, comunidadId);
@@ -71,6 +76,7 @@ public class ComunidadDaoImplTest {
 	@Test
 	public void testGetComunidadByName() {
 		ComunidadDao dao = ComunidadDaoImpl.getInstance();
+		
 		List<String> userIds = new ArrayList<>();
 		
 		for(int i = 0; i < 4; i++){
@@ -81,17 +87,27 @@ public class ComunidadDaoImplTest {
 		String gestorId = String.valueOf(System.currentTimeMillis());
 		String comunidadId = String.valueOf(System.currentTimeMillis());
 		Comunidad comunidad = new Comunidad("comunidad", gestorId, "1234", userIds, comunidadId);
+		Comunidad comunidad2 = new Comunidad("comunidad2", gestorId, "1234", userIds, comunidadId);
 	
 		dao.guardarComunidad(comunidad.getNombre(), comunidad.getGestorId(), "1234", userIds, comunidadId);
 		
 		Comunidad result = dao.getComunidadByName("comunidad");
 		
 		assertEquals(result.getGestorId(), gestorId);
+		
+		dao.guardarComunidad(comunidad2.getNombre(), comunidad2.getGestorId(), "1234", userIds, comunidadId);
+		
+		Comunidad result2 = dao.getComunidadByName("comunidad");
+		Comunidad result3 = dao.getComunidadByName("comunidad2");
+		
+		assertNull(result2);
+		assertEquals(gestorId, result3.getGestorId());
 	}
 
 	@Test
 	public void testGetComunidadesByUser() {
 		ComunidadDao dao = ComunidadDaoImpl.getInstance();
+		
 		List<String> userIds = new ArrayList<>();
 		String userId1 = "admin";
 		userIds.add(userId1);
