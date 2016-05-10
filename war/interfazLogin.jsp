@@ -156,7 +156,7 @@
 				</div>
 				<br> <b><a id='entrar' class='entrar'
 					href="/account/forgot-password">¿Olvido su contraseña?</a> </b> <br>
-				<b><a id='entrar' class='entrar' href="interfazregistro.html">Crear
+				<b><a id='entrar' class='entrar' href="interfazRegistro.jsp">Crear
 						una cuenta</a> </b>
 
 			</div>
