@@ -40,6 +40,8 @@
     <script type="text/javascript" src="estiloindex/js/jqBootstrapValidation.js"></script>
     <script type="text/javascript" src="estiloindex/js/cbpAnimatedHeader.js"></script>
     <script type="text/javascript" src="estiloindex/js/classie.js"></script>    
+    
+    <link href="./../css/chat.css" rel="stylesheet" type="text/css">
 
     <!-- Custom Fonts -->
     <link href="estiloindex/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -137,7 +139,54 @@
 		<div class="container text-center">
 			<fieldset>
 				<div id="chatdecomunidad">
-					<h2>Interfaz de chat de comunidad a implementar</h2>
+				<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="portlet portlet-default">
+                <div class="portlet-heading">
+                    <div class="portlet-title">
+                        <h4></h4>
+                    </div>
+                    <div class="portlet-widgets">
+                        <span class="divider"></span>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#chat"><i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="chat" class="panel-collapse collapse in">
+                    <div>
+                    <div class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 300px;">
+                        <c:forEach items="${mensajes}" var="mensaje">
+	                        <div class="row">
+	                            <div class="col-lg-12">
+	                                <div class="media">
+	                                    <div class="media-body">
+	                                        <p><c:out value="${mensaje.mensaje}"/></p>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <hr>
+                        </c:forEach>
+                    </div>
+                    </div>
+                    <div class="portlet-footer">
+                        <form role="form">
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Enter message..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-default pull-right">Send</button>
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-md-4 -->
+    </div>
+</div>
 				</div>
 				<hr class="star-primary">
 			</fieldset>
