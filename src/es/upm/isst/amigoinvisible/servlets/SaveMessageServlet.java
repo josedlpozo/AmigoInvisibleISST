@@ -22,8 +22,7 @@ public class SaveMessageServlet extends HttpServlet{
 		String userId = (String) req.getSession().getAttribute("id");
 		String comunidadId = (String) req.getSession().getAttribute("comunidadId");
 		String mensaje = req.getParameter("mensaje");
-
-		dao.saveMensaje(userId, comunidadId, mensaje);
+		if(!mensaje.isEmpty()) dao.saveMensaje(userId, comunidadId, mensaje);
 		
 		resp.sendRedirect("/micomunidad");
 	}
