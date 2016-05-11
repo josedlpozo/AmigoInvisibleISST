@@ -171,13 +171,15 @@
                     </div>
                     </div>
                     <div class="portlet-footer">
-                        <form role="form">
+                        <form action="/savemessage" method="post">
                             <div class="form-group">
-                                <textarea class="form-control" placeholder="Enter message..."></textarea>
+                                <textarea class="form-control" placeholder="Enter message..." name="mensaje"></textarea>
                             </div>
                             <div class="form-group">
-                                <button type="button" class="btn btn-default pull-right">Send</button>
-                                <div class="clearfix"></div>
+                            	
+	                                <input type="submit" class="btn btn-default pull-right">Send</input>
+	                                <div class="clearfix"></div>
+                        </form>
                             </div>
                         </form>
                     </div>
