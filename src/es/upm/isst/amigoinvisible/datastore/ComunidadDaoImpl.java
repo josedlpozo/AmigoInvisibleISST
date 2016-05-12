@@ -79,4 +79,14 @@ public class ComunidadDaoImpl implements ComunidadDao{
 		em.close();
 	}
 
+	@Override
+	public Comunidad getComunidadByID(String comunidadId) {
+		EntityManager em = PersistenceManager.get().createEntityManager();
+		try{
+			return em.find(Comunidad.class, comunidadId);
+		}catch(Exception e){
+			return null;
+		}
+	}
+
 }

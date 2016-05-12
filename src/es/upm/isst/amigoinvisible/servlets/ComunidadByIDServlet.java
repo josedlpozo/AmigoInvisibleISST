@@ -18,35 +18,19 @@ import es.upm.isst.amigoinvisible.datastore.UserDaoImpl;
 import es.upm.isst.amigoinvisible.model.Comunidad;
 import es.upm.isst.amigoinvisible.model.Mensaje;
 import es.upm.isst.amigoinvisible.model.Usuario;
+
 @SuppressWarnings("serial")
-public class MiComunidadServlet extends HttpServlet {
+public class ComunidadByIDServlet extends HttpServlet{
 	
 	public void doGet(HttpServletRequest req, final HttpServletResponse resp) throws IOException {
-		if(req.getSession().getAttribute("user") == null){
-			resp.sendRedirect("/index.html");
-			return;
-		}
-		System.out.println("mi comunidad");
-		String userName = (String) req.getSession().getAttribute("user");
-		ComunidadDao dao = ComunidadDaoImpl.getInstance();
-		UserDao userdao = UserDaoImpl.getInstance();
+		ComunidadDao comunidaddao = ComunidadDaoImpl.getInstance();
 		MensajesDao mensajesdao = MensajesDaoImpl.getInstance();
+		String userName = (String) req.getSession().getAttribute("user");
+		UserDao userdao = UserDaoImpl.getInstance();
 		Usuario user = userdao.getUserByName(userName);
-		List<Comunidad> comunidades = dao.getComunidadesByUser(user.getUserId());
-		Comunidad comunidad = null;
 		
+		Comunidad comunidad = comunidaddao.getComunidadByID((String) req.getSession().getAttribute("comunidadId"));
 		
-		for (Comunidad i: comunidades) {
-			if (req.getParameter(i.getNombre()) != null) {
-				comunidad=i;
-			}
-			if(req.getSession().getAttribute("nombrecomunidad") != null){
-				if(i.getNombre().equals(req.getSession().getAttribute("nombrecomunidad").toString())){
-					comunidad = i;
-				}
-			}
-		}
-
 		if (comunidad == null){
 			req.getSession().setAttribute("nombrecomunidad", "Prueba");
 		}
@@ -66,7 +50,6 @@ public class MiComunidadServlet extends HttpServlet {
 		req.getSession().setAttribute("mensajes", new ArrayList<>(mensajes));
 		
 		if(comunidad.getSorteo() != null){
-			System.out.println("sorteo != null");
 			Usuario usuarioARegalar = userdao.getUserByID(comunidad.getSorteo().get(user.getUserId()));
 			if(comunidad.getSorteo().isEmpty() || usuarioARegalar == null){
 				req.getSession().setAttribute("sorteo", "Aún no se ha realizado ningún sorteo");
@@ -74,11 +57,7 @@ public class MiComunidadServlet extends HttpServlet {
 				req.getSession().setAttribute("sorteo", usuarioARegalar.getUsername());
 			}
 		}
-
 		
-		req.getSession().setAttribute("comunidadId", comunidad.getComunidadId());
-
 		resp.sendRedirect("/interfazMiComunidad.jsp");
 	}
 }
-

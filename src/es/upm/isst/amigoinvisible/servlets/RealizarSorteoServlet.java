@@ -25,7 +25,7 @@ import es.upm.isst.amigoinvisible.datastore.UserDao;
 import es.upm.isst.amigoinvisible.datastore.UserDaoImpl;
 import es.upm.isst.amigoinvisible.model.Comunidad;
 import es.upm.isst.amigoinvisible.model.Usuario;
-
+@SuppressWarnings("serial")
 public class RealizarSorteoServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, final HttpServletResponse resp) throws IOException {
 		if(req.getSession().getAttribute("user") == null){
@@ -96,7 +96,14 @@ public class RealizarSorteoServlet extends HttpServlet {
 		comunidad.setSorteo(sorteo);
 
 		dao.actualizaComunidad(comunidad);
-
-		resp.sendRedirect("/micomunidad");
+		
+		Usuario usuarioARegalar = userdao.getUserByID(comunidad.getSorteo().get(user.getUserId()));
+		if(comunidad.getSorteo().isEmpty() || usuarioARegalar == null){
+			req.getSession().setAttribute("sorteo", "Aún no se ha realizado ningún sorteo");
+		}else{
+			req.getSession().setAttribute("sorteo", usuarioARegalar.getUsername());
+		}
+		
+		resp.sendRedirect("/interfazMiComunidad.jsp");
 	}
 }

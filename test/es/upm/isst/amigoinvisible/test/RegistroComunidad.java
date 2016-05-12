@@ -49,13 +49,7 @@ public class RegistroComunidad {
 		driver.findElement(By.id("nombre_3")).clear();
 		driver.findElement(By.id("nombre_3")).sendKeys("eduardo@gmail.com");
 		driver.findElement(By.cssSelector("input.btn.btn-default")).click();
-		driver.findElement(By.id("Salir")).click();
-		driver.findElement(By.id("Entrar")).click();
-		driver.findElement(By.id("name")).clear();
-		driver.findElement(By.id("name")).sendKeys("manuel");
-		driver.findElement(By.id("password")).clear();
-		driver.findElement(By.id("password")).sendKeys("isst");
-		driver.findElement(By.cssSelector("input[type=submit]")).submit();
+		driver.findElement(By.id("Mis comunidades")).click();
 		driver.findElement(By.name("ComunidadISST")).click();
 		driver.findElement(By.id("Salir")).click();
 	}

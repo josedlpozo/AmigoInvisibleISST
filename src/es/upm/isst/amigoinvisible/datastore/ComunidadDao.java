@@ -13,4 +13,6 @@ public interface ComunidadDao {
 	List<Comunidad> getComunidadesByUser(String userName);
 	
 	void actualizaComunidad(Comunidad comunidad);
+	
+	Comunidad getComunidadByID(String comunidadId);
 }

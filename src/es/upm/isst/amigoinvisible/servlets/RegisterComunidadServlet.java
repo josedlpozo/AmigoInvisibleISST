@@ -21,7 +21,7 @@ import es.upm.isst.amigoinvisible.datastore.ComunidadDaoImpl;
 import es.upm.isst.amigoinvisible.datastore.UserDao;
 import es.upm.isst.amigoinvisible.datastore.UserDaoImpl;
 import es.upm.isst.amigoinvisible.model.Usuario;
-
+@SuppressWarnings("serial")
 public class RegisterComunidadServlet extends HttpServlet{
 	
 	public void doGet(HttpServletRequest req, final HttpServletResponse resp) throws IOException {
@@ -77,6 +77,8 @@ public class RegisterComunidadServlet extends HttpServlet{
 		}
 		String comunidadId = ""+System.currentTimeMillis();
 		comunidadDao.guardarComunidad(comunidadName, gestorId, password, users, comunidadId);
-		resp.sendRedirect("/interfazMiComunidad.jsp");
+		
+		req.getSession().setAttribute("comunidadId", comunidadId);
+		resp.sendRedirect("/comunidadById");
 	}
 }

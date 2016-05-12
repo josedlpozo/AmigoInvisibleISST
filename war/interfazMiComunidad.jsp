@@ -51,11 +51,8 @@
 <body id="page-top">
 
 
-
 	<%@ include file="/navbar.html" %>
-	
-	
-	
+		
 	<section id="about">
 		<div class="container text-center">
 			<fieldset>
