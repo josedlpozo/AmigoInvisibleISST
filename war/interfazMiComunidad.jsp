@@ -40,7 +40,7 @@
     <script type="text/javascript" src="estiloindex/js/jqBootstrapValidation.js"></script>
     <script type="text/javascript" src="estiloindex/js/cbpAnimatedHeader.js"></script>
     <script type="text/javascript" src="estiloindex/js/classie.js"></script>    
-    
+    <script type="text/javascript" src="JS/navbarJS.js"></script>
     <link href="./../css/chat.css" rel="stylesheet" type="text/css">
 
     <!-- Custom Fonts -->
@@ -60,7 +60,7 @@
 					<h1><c:out value="${nombrecomunidad}"/></h1>
 						<h2><c:out value="${user}"/></h2>
 							<a id="Mi lista de deseos" href="/milistadedeseos">Mi lista de deseos</a><br>
-							<a id="Ideas para regalar" href="/TuListaDeDeseosServlet">Ideas para regalar</a>
+							
 				</div>
 				<hr class="star-primary">
 			</fieldset>
@@ -77,8 +77,19 @@
 						<h2>A quien tienes que regalar </h2>
 								<!--  TODO  -->
 								<c:if test="${not empty sorteo}">
-									<p class="oculto"><c:out value="${sorteo}" /></p>
+									<form action="/TuListaDeDeseosServlet" method="get"> 
+									<div align="center" class="oculto">
+									<input type="submit" 
+									name="regalado"
+									value="<c:out value="${sorteo}" />" 
+									style="background-color: #2c3e50" 
+									
+									class="btn btn-default"
+								/>
+								</div>
+								</form>
 								</c:if>
+								
 					</div>
 					<c:if test="${not empty gestor}">
 						<form action="/sorteo" method="get"> 

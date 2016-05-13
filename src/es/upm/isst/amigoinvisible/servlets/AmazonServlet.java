@@ -35,7 +35,7 @@ public class AmazonServlet extends HttpServlet {
 			}
 		}
 		req.getSession().setAttribute("deseos", new ArrayList<String>(deseos));
-		if (direccion.equals("/interfazMiListaDeDeseos.jsp")){
+		if (direccion.equals("/interfazMiListaDeDeseos.jsp")||direccion.equals("/interfazTuListaDeDeseos.jsp")){
 		resp.sendRedirect(direccion);
 		System.out.println("Dentro del if");
 		}

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Interfaz mi lista de deseos</title>
+	<title> Ideas para regalar</title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -78,11 +78,11 @@
 	<%@ include file="/navbar.html" %>
 	<header>
 		<div class="container">
-			<h1>Mi lista de deseos</h1>
+			<h1>Ideas para regalar</h1>
 				<div id="listadeseos">
-					<form action="/amazon" method="get">
+					<form onsubmit= "return Misdeseos()" method="get">
 						<c:forEach items="${deseos}" var="deseo">
-								<input type="submit" 
+								<input type="submit" id="deseo"
 									name="<c:out value="${deseo}" />"
 									value="<c:out value="${deseo}" />" 
 									style="background-color: #2c3e50" 

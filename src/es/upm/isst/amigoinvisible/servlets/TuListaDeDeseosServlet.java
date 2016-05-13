@@ -27,8 +27,12 @@ public class TuListaDeDeseosServlet extends HttpServlet{
 			resp.sendRedirect("/index.html");
 			return;
 		}
-		String userName = (String) req.getSession().getAttribute("user");
-
+		String userName = (String) req.getSession().getAttribute("id");
+		System.out.println(userName);
+		UserDao dao = UserDaoImpl.getInstance();
+		Usuario user2 = dao.getUserByID(userName);
+		
+		System.out.println(""+user2);
 		//ComunidadDao dao = ComunidadDaoImpl.getInstance();
 		UserDao userdao = UserDaoImpl.getInstance();
 		//MensajesDao mensajesdao = MensajesDaoImpl.getInstance();
@@ -37,26 +41,55 @@ public class TuListaDeDeseosServlet extends HttpServlet{
 		Comunidad comunidad = null;
 		//Usuario usuarioARegalar = userdao.getUserByID(comunidad.getSorteo().get(user.getUserId()));
 
+		String userName2= req.getParameter("regalado");
+		System.out.println(userName2);
+		//String userName4 = (String) req.getSession().getAttribute("id");
+		//String id2= userName.getUserId();
 		
 		//String userName2 = (String) req.getSession().getAttribute("id");
+		UserDao dao2 = UserDaoImpl.getInstance();
+		Usuario user3 = dao2.getUserByName(userName2);
 		
-			
-			Usuario usuarioARegalar = userdao.getUserByID(comunidad.getSorteo().get(user.getUserId()));
-			if(usuarioARegalar == null){
-				//req.getSession().setAttribute("sorteo", "Aún no se ha realizado ningún sorteo");
-				resp.sendRedirect("/interfazMiComunidad.jsp");
-			}else{
-				//User regalado= usuarioARegalar.getUsername();
-				List<String> deseos = new ArrayList();
-				deseos = usuarioARegalar.getDeseos();
+		//System.out.println(user.getUsername());
+		List<String> deseos = new ArrayList();
+		
+			deseos = user3.getDeseos();
 
-				
-				
-				req.getSession().setAttribute("deseos", new ArrayList<String>(deseos));
-				resp.sendRedirect("/interfazTuListaDeDeseos.jsp");
-			}
-			}
-		}
+			req.getSession().setAttribute("deseos", new ArrayList<String>(deseos));
+			resp.sendRedirect("/interfazTuListaDeDeseos.jsp");
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		//String userName2 = (String) req.getSession().getAttribute("id");
+		/*
+			try{
+				String user2=(String) req.getSession().getAttribute(comunidad.getSorteo().get(user.getUserId()));
+				Usuario usuarioARegalar = userdao.getUserByID(user2);
+				if(usuarioARegalar == null){
+					//req.getSession().setAttribute("sorteo", "Aún no se ha realizado ningún sorteo");
+					resp.sendRedirect("/interfazMiComunidad.jsp");
+				}else{
+					//User regalado= usuarioARegalar.getUsername();
+					List<String> deseos = new ArrayList();
+					deseos = usuarioARegalar.getDeseos();
+
+
+
+					req.getSession().setAttribute("deseos", new ArrayList<String>(deseos));
+					resp.sendRedirect("/interfazTuListaDeDeseos.jsp");
+				}
+			}catch( Exception e){
+				System.out.println("Aqui esta el problema");
+			}*/
+	}
+}
 		
 		
 		//System.out.println(user.getUsername());

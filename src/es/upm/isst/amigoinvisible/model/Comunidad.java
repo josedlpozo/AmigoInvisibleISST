@@ -84,4 +84,5 @@ public class Comunidad implements Serializable{
 		this.sorteo = sorteo;
 	}
 	
+	
 }
