@@ -1,6 +1,7 @@
 package es.upm.isst.amigoinvisible.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.IdentityType;
@@ -26,7 +27,7 @@ public class Usuario implements Serializable{
 	@Basic
 	private String password;
 	@Basic
-	private List<String> deseos;
+	public List<String> deseos;
 
 	public Usuario(String username, String email, String userId) {
 		this.username = username;
@@ -40,11 +41,12 @@ public class Usuario implements Serializable{
 		this.id = userId;
 		this.password = password;
 	}
-	public Usuario(String username, String email, List<String> deseos, String userId) {
+	public Usuario(String username, String email,String password,  String userId , List<String> deseos) {
 		this.username = username;
 		this.email = email;
 		this.id = userId;
 		this.deseos = deseos;
+		this.password = password;
 	}
 	
 	public String getPassword(){

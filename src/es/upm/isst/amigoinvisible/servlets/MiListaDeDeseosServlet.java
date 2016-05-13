@@ -15,7 +15,7 @@ import es.upm.isst.amigoinvisible.datastore.UserDaoImpl;
 import es.upm.isst.amigoinvisible.model.Comunidad;
 import es.upm.isst.amigoinvisible.model.Usuario;
 
-public class MiListaDeDeseos extends HttpServlet{
+public class MiListaDeDeseosServlet extends HttpServlet{
 	@SuppressWarnings("null")
 	public void doGet(HttpServletRequest req, final HttpServletResponse resp) throws IOException {
 		if(req.getSession().getAttribute("user") == null){
@@ -25,17 +25,14 @@ public class MiListaDeDeseos extends HttpServlet{
 		
 		String userName = (String) req.getSession().getAttribute("id");
 		UserDao dao = UserDaoImpl.getInstance();
-		Usuario user = dao.getUserByName(userName);
-		String amazon = "https://www.amazon.es/s/ref=nb_sb_noss_2?__mk_es_ES=ÅMÅŽÕÑ&url=search-alias%3Daps&field-keywords=";
-		List<String> deseos = user.getDeseos();
-		List<String> enlaces = null;
-		if(!deseos.isEmpty() && deseos != null){
-			for (String i: deseos) {
-					enlaces.add(amazon+i);
-			}
-		}
-		req.getSession().setAttribute("deseos", new ArrayList<String>(deseos));
+		Usuario user = dao.getUserByID(userName);
+		//System.out.println(user.getUsername());
+		List<String> deseos = new ArrayList();
+		deseos = user.getDeseos();
+
 		
+		
+		req.getSession().setAttribute("deseos", new ArrayList<String>(deseos));
 		resp.sendRedirect("/interfazMiListaDeDeseos.jsp");
 	}
 

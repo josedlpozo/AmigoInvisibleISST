@@ -79,10 +79,23 @@
 	<header>
 		<div class="container">
 			<h1>Mi lista de deseos</h1>
-			
+				<div id="listadeseos">
+					<form action="/amazon" method="get">
+						<c:forEach items="${deseos}" var="deseo">
+								<input type="submit" 
+									name="<c:out value="${deseo}" />"
+									value="<c:out value="${deseo}" />" 
+									style="background-color: #2c3e50" 
+									class="btn btn-default"
+								/>
+								<br>
+								<br>
+						</c:forEach>
+					</form>
+				</div>
 				<div class="rellenar">
-					<form onsubmit="return Misdeseos()">
-								<input type="text" id="deseo" />
+					<form action="/guardardeseo">
+								<input type="text" name="nuevodeseo" />
 								<input type="submit"class="btn btn-default" style="background-color: #2c3e50"/>
 					</form>
 				</div>

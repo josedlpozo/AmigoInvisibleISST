@@ -59,7 +59,7 @@
 				<div id="infopersonal"></div>
 					<h1><c:out value="${nombrecomunidad}"/></h1>
 						<h2><c:out value="${user}"/></h2>
-							<a id="Mi lista de deseos" href="interfazMiListaDeDeseos.jsp">Mi lista de deseos</a><br>
+							<a id="Mi lista de deseos" href="/milistadedeseos">Mi lista de deseos</a><br>
 							<a id="Ideas para regalar" href="interfazideasderegalo.html">Ideas para regalar</a>
 				</div>
 				<hr class="star-primary">

@@ -52,6 +52,20 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>ComunidadByIDServlet</servlet-name>
 		<servlet-class>es.upm.isst.amigoinvisible.servlets.ComunidadByIDServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>MiListaDeDeseosServlet</servlet-name>
+		<servlet-class>es.upm.isst.amigoinvisible.servlets.MiListaDeDeseosServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AmazonServlet</servlet-name>
+		<servlet-class>es.upm.isst.amigoinvisible.servlets.AmazonServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GuardarDeseoServlet</servlet-name>
+		<servlet-class>es.upm.isst.amigoinvisible.servlets.GuardarDeseoServlet</servlet-class>
+	</servlet>
+	
+	
 	<servlet-mapping>
 		<servlet-name>RegisterLoginUser</servlet-name>
 		<url-pattern>/register</url-pattern>
@@ -100,6 +114,20 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>ComunidadByIDServlet</servlet-name>
 		<url-pattern>/comunidadById</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MiListaDeDeseosServlet</servlet-name>
+		<url-pattern>/milistadedeseos</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AmazonServlet</servlet-name>
+		<url-pattern>/amazon</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GuardarDeseoServlet</servlet-name>
+		<url-pattern>/guardardeseo</url-pattern>
+	</servlet-mapping>
+	
+	
 	
 	<welcome-file-list>
 		<welcome-file>index</welcome-file>

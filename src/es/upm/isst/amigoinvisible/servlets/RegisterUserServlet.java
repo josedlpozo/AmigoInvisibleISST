@@ -2,6 +2,8 @@ package es.upm.isst.amigoinvisible.servlets;
 
 import java.io.IOException;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
@@ -33,7 +35,8 @@ public class RegisterUserServlet extends HttpServlet {
 				req.getSession().setAttribute("user", userName);
 				req.getSession().setAttribute("id", userId);
 				req.getSession().setAttribute("user_email",  req.getParameter("email"));
-				dao.saveUserWithPassword(userName, req.getParameter("email"), password1, userId);
+				List<String> deseos= new ArrayList();
+				dao.saveUserWithPassword(userName, req.getParameter("email"), password1, userId, deseos);
 				Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
 				try {
 					msg.setFrom(new InternetAddress("amigo@amigoinvisibleisst.appspotmail.com", "Sistema de registro Amigo Invisible"));

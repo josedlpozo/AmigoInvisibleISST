@@ -46,23 +46,15 @@ public class UserDaoImpl implements UserDao{
 		return null;
 	}
 
-	@Override
-	public void saveUserWithPassword(String name, String email, String password, String userId) {
+	public void saveUserWithPassword(String name, String email, String password, String userId, List<String> listaDeseos) {
 		EntityManager em = PersistenceManager.get().createEntityManager();
 
-		Usuario usuario = new Usuario(name, email, password, userId);
+		Usuario usuario = new Usuario(name, email, password, userId, listaDeseos);
 
 		em.persist(usuario);
 		em.close();
 	}
-	public void saveUserWithList(String name, String email, List<String> deseos, String userId) {
-		EntityManager em = PersistenceManager.get().createEntityManager();
 
-		Usuario usuario = new Usuario(name, email, deseos, userId);
-
-		em.persist(usuario);
-		em.close();
-	}
 	@Override
 	public Usuario getUserByEmail(String email) {
 		EntityManager em = PersistenceManager.get().createEntityManager();

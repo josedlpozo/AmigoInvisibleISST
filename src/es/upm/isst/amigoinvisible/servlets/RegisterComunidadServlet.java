@@ -59,7 +59,8 @@ public class RegisterComunidadServlet extends HttpServlet{
 				}
 				String pass = sb.toString();
 				String userId = ""+System.currentTimeMillis();
-				userDao.saveUserWithPassword(userName, email, pass, userId);
+				List<String> deseos= new ArrayList();
+				userDao.saveUserWithPassword(userName, email, pass, userId,deseos);
 				
 				Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
 				try {

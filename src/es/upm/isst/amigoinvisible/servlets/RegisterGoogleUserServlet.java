@@ -1,6 +1,8 @@
 package es.upm.isst.amigoinvisible.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -35,7 +37,8 @@ public class RegisterGoogleUserServlet extends HttpServlet {
 			req.getSession().setAttribute("user", user);
 			req.getSession().setAttribute("id", userId);
 			req.getSession().setAttribute("user_email", userService.getCurrentUser().getEmail());
-			dao.saveUserWithPassword(user, userService.getCurrentUser().getEmail(), "", userId);
+			List<String> deseos= new ArrayList();
+			dao.saveUserWithPassword(user, userService.getCurrentUser().getEmail(), "", userId, deseos);
 			Message msg = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
 			try {
 				msg.setFrom(new InternetAddress("amigo@amigoinvisibleisst.appspotmail.com", "Sistema de registro Amigo Invisible"));
