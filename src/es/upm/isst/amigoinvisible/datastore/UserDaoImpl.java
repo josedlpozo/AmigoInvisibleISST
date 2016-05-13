@@ -55,6 +55,16 @@ public class UserDaoImpl implements UserDao{
 		em.persist(usuario);
 		em.close();
 	}
+	@Override
+	public void saveUserWithList(String name, String email, String userId, List<String> deseos) {
+		EntityManager em = PersistenceManager.get().createEntityManager();
+
+		Usuario usuario = new Usuario(name, email, userId, deseos);
+
+		em.persist(usuario);
+		em.close();
+		
+	}
 
 	@Override
 	public Usuario getUserByEmail(String email) {
@@ -102,4 +112,6 @@ public class UserDaoImpl implements UserDao{
 		
 		return null;
 	}
+
+	
 }

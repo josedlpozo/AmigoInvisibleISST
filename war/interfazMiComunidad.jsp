@@ -14,7 +14,7 @@
     <meta name="author" content="">
 
 	
-  
+  <script src="ajax4.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
@@ -40,7 +40,7 @@
     <script type="text/javascript" src="estiloindex/js/jqBootstrapValidation.js"></script>
     <script type="text/javascript" src="estiloindex/js/cbpAnimatedHeader.js"></script>
     <script type="text/javascript" src="estiloindex/js/classie.js"></script>    
-    
+  
     <link href="./../css/chat.css" rel="stylesheet" type="text/css">
 
     <!-- Custom Fonts -->
@@ -55,6 +55,7 @@
 	<%@ include file="/navbar.html" %>
 	
 	
+
 	
 	<section id="about">
 		<div class="container text-center">
@@ -132,67 +133,83 @@
 			</fieldset>
 		</div>
 	</header>
-	
-	
-	
-	<section id="about">
-		<div class="container text-center">
-			<fieldset>
-				<div id="chatdecomunidad">
+	<a name="chat">
+<section id="about">
+	<div class="container text-center">
+		<fieldset>
+			<div id="chatdecomunidad">
 				<div class="container bootstrap snippet">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="portlet portlet-default">
-                <div class="portlet-heading">
-                    <div class="portlet-title">
-                        <h4></h4>
-                    </div>
-                    <div class="portlet-widgets">
-                        <span class="divider"></span>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#chat"><i class="fa fa-chevron-down"></i></a>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div id="chat" class="panel-collapse collapse in">
-                    <div>
-                    <div class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 300px;">
-                        <c:forEach items="${mensajes}" var="mensaje">
-	                        <div class="row">
-	                            <div class="col-lg-12">
-	                                <div class="media">
-	                                    <div class="media-body">
-	                                        <p><c:out value="${mensaje.mensaje}"/></p>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <hr>
-                        </c:forEach>
-                    </div>
-                    </div>
-                    <div class="portlet-footer">
-                        <form action="/savemessage" method="post">
-                            <div class="form-group">
-                                <textarea class="form-control" placeholder="Enter message..." name="mensaje"></textarea>
-                            </div>
-                            <div class="form-group">
-                            	
-	                                <input type="submit" class="btn btn-default pull-right">Send</input>
-	                                <div class="clearfix"></div>
-                        </form>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /.col-md-4 -->
-    </div>
-</div>
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<div class="portlet portlet-default">
+								<div class="portlet-heading">
+									<div class="portlet-title">
+										<h4></h4>
+									</div>
+									<div class="portlet-widgets">
+										<span class="divider"></span> <a data-toggle="collapse"
+											data-parent="#accordion" href="#chat"><i
+											class="fa fa-chevron-down"></i></a>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								
+								<div id="chat" class="panel-collapse collapse in">
+										<div id="actualizar2">
+										<div class="portlet-body chat-widget"
+											style="overflow-y: auto; width: auto; height: 300px;"id="actualizar">
+											<c:forEach items="${mensajes}" var="mensaje">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="media">
+															<div class="media-body">
+																<p>
+																	<c:out value="${mensaje.mensaje}" />
+																</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<hr>
+											</c:forEach>
+										</div>
+										</div>	
+									</div>
+									<div class="portlet-footer">
+										<form action="/savemessage" method="post">
+											<div class="form-group">
+												<textarea class="form-control"
+													placeholder="Enter message..." name="mensaje"></textarea>
+											</div>
+											<div class="form-group">
+
+												<input type="submit" class="btn btn-default pull-right"
+													></input>
+												<div class="clearfix"></div>
+										</form>
+										<input type="submit" 
+										value="Refrescar"  
+										onclick="/savemessage" 
+										style="background-color: #2c3e50" 
+										class="btn btn-default"
+													></input>
+									</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /.col-md-4 -->
 				</div>
-				<hr class="star-primary">
-			</fieldset>
-		</div>
+			</div>
+
+</a>
+
+	
+	
+	<hr class="star-primary">
+	</fieldset>
+	</div>
 	</section>
 
 
