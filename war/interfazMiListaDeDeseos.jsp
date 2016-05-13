@@ -77,13 +77,39 @@
 	<header>
 		<div class="container">
 			<h1>Mi lista de deseos</h1>
-				<div class="rellenar">
-					<form onsubmit="return Misdeseos()">
-								<input type="text" id="deseo" />
-								<input type="submit"class="btn btn-default" style="background-color: #2c3e50"/>
-					</form>
-				</div>
+			<div class="rellenar">
+				<form onsubmit="return Misdeseos()">
+					<input type="text" id="deseo" /> <input type="submit"
+						class="btn btn-default" style="background-color: #2c3e50" />
+						 <input type="submit" onclick="Annadir()" class="btn btn-default"
+						style="background-color: #2c3e50" value="Añadir" />
+
+				</form>
+
+
+				
+			</div>
 		</div>
+		
+		<div id="listaDeseos">
+			<form action="/MiListaDeDeseos" method="get">
+				<c:forEach items="${deseos}" var="deseo">
+						<input type="submit" 
+							name="<c:out value="${deseo.nombre}" />"
+							value="<c:out value="${deseos.nombre}" />" 
+							style="background-color: #2c3e50" 
+							class="btn btn-default"
+						/>
+						<br>
+						<br>
+				</c:forEach>
+			</form>
+		</div>
+
+
+
+
+
 	</header>			
 	<footer class="text-center">
 	     <div class="footer-below">

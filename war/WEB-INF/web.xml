@@ -48,6 +48,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>SaveMessageServlet</servlet-name>
 		<servlet-class>es.upm.isst.amigoinvisible.servlets.SaveMessageServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>MiListaDeDeseos</servlet-name>
+		<servlet-class>es.upm.isst.amigoinvisible.servlets.MiListaDeDeseos</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>RegisterLoginUser</servlet-name>
 		<url-pattern>/register</url-pattern>
@@ -92,7 +96,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>SaveMessageServlet</servlet-name>
 		<url-pattern>/savemessage</url-pattern>
 	</servlet-mapping>
-	
+	<servlet-mapping>
+		<servlet-name>MiListaDeDeseos</servlet-name>
+		<url-pattern>/MiListaDeDeseos</url-pattern>
+	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index</welcome-file>
 	</welcome-file-list>
