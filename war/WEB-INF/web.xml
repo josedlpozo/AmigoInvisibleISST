@@ -48,6 +48,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>SaveMessageServlet</servlet-name>
 		<servlet-class>es.upm.isst.amigoinvisible.servlets.SaveMessageServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ComunidadByIDServlet</servlet-name>
+		<servlet-class>es.upm.isst.amigoinvisible.servlets.ComunidadByIDServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>TuListaDeDeseosServlet</servlet-name>
+		<servlet-class>es.upm.isst.amigoinvisible.servlets.TuListaDeDeseosServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>RegisterLoginUser</servlet-name>
 		<url-pattern>/register</url-pattern>
@@ -91,6 +99,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-mapping>
 		<servlet-name>SaveMessageServlet</servlet-name>
 		<url-pattern>/savemessage</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ComunidadByIDServlet</servlet-name>
+		<url-pattern>/comunidadById</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TuListaDeDeseosServlet</servlet-name>
+		<url-pattern>/TuListaDeDeseosServlet</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>

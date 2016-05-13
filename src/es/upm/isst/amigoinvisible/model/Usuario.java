@@ -40,7 +40,13 @@ public class Usuario implements Serializable{
 		this.id = userId;
 		this.password = password;
 	}
-
+	public Usuario(String username, String email, List<String> deseos, String userId) {
+		this.username = username;
+		this.email = email;
+		this.id = userId;
+		this.deseos = deseos;
+	}
+	
 	public String getPassword(){
 		return this.password;
 	}
@@ -63,6 +69,10 @@ public class Usuario implements Serializable{
 
 	public List<String> getDeseos() {
 		return this.deseos;
+	}
+	
+	public void setDeseo(String deseo){
+		this.deseos.add(deseo);
 	}
 
 	public void setId(String userId){

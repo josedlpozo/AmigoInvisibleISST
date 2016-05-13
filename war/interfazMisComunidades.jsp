@@ -106,6 +106,7 @@
 							value="<c:out value="${comunidad.nombre}" />" 
 							style="background-color: #2c3e50" 
 							class="btn btn-default"
+							
 						/>
 						<br>
 						<br>

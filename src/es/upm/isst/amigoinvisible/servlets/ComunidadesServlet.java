@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import es.upm.isst.amigoinvisible.datastore.ComunidadDao;
 import es.upm.isst.amigoinvisible.datastore.ComunidadDaoImpl;
 import es.upm.isst.amigoinvisible.model.Comunidad;
-
+@SuppressWarnings("serial")
 public class ComunidadesServlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest req, final HttpServletResponse resp) throws IOException {
@@ -24,13 +24,10 @@ public class ComunidadesServlet extends HttpServlet {
 		
 		ComunidadDao dao = ComunidadDaoImpl.getInstance();
 		List<Comunidad> comunidades = dao.getComunidadesByUser(userName);
-		for(Comunidad c : comunidades){
-			System.out.println(c.getNombre());
-		}
+		
 		req.getSession().setAttribute("comunidades", new ArrayList<Comunidad>(comunidades));
-		System.out.println("comunidades");
+		
 		resp.sendRedirect("/interfazMisComunidades.jsp");
-
 	}
 
 }
