@@ -16,6 +16,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>LoginUserServlet</servlet-name>
 		<servlet-class>es.upm.isst.amigoinvisible.servlets.LoginUserServlet</servlet-class>
 	</servlet>
+	
 	<servlet>
 		<servlet-name>RegisterComunidadServlet</servlet-name>
 		<servlet-class>es.upm.isst.amigoinvisible.servlets.RegisterComunidadServlet</servlet-class>
@@ -64,7 +65,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>GuardarDeseoServlet</servlet-name>
 		<servlet-class>es.upm.isst.amigoinvisible.servlets.GuardarDeseoServlet</servlet-class>
 	</servlet>
-	
+	<servlet>
+		<servlet-name>TuListaDeDeseosServlet</servlet-name>
+		<servlet-class>es.upm.isst.amigoinvisible.servlets.TuListaDeDeseosServlet</servlet-class>
+	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>RegisterLoginUser</servlet-name>
@@ -126,7 +130,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>GuardarDeseoServlet</servlet-name>
 		<url-pattern>/guardardeseo</url-pattern>
 	</servlet-mapping>
-	
+	<servlet-mapping>
+		<servlet-name>TuListaDeDeseosServlet</servlet-name>
+		<url-pattern>/TuListaDeDeseosServlet</url-pattern>
+	</servlet-mapping>
 	
 	
 	<welcome-file-list>
