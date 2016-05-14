@@ -2,6 +2,9 @@ package es.upm.isst.amigoinvisible.datastore;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -71,7 +74,8 @@ public class UserDaoImplTest {
 	public void testSaveUserWithPassword() {
 		UserDao dao = UserDaoImpl.getInstance();
 		Usuario user = new Usuario("admin", "admin@admin.com", "admin1234", ""+System.currentTimeMillis());
-		dao.saveUserWithPassword(user.getUsername(), user.getEmail(), user.getPassword(), user.getUserId());
+		List<String> deseos = new ArrayList<>();
+		dao.saveUserWithPassword(user.getUsername(), user.getEmail(), user.getPassword(), user.getUserId(), deseos);
 		
 		assertEquals("admin", user.getUsername());
 	}

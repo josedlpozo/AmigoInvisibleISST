@@ -132,28 +132,6 @@
 		</div>
 	</section>
 	
-	
-	
-	<header>
-		<div class="container">
-			<fieldset>
-				<div id="infocomunidad">
-					<h2>Fecha de entrega de regalos</h2>
-						<h3>5 de junio de 2016</h3>
-						<p>Si aÃºn no se ha establecido debera aparecer un mensaje avisÃ¡ndolo</p>
-
-					<h2>Precio orientativo</h2>
-						<h3>Precio orientativo(texto variable y autogenerado, javascript a partir de campo de base de datos?)</h3>
-						<p>Si aÃºn no se ha establecido debera aparecer un mensaje avisÃ¡ndolo</p>
-					<h4>Al gestor le aparecera la opciÃ³n de cambiar ambos campos</h4>
-				</div>
-				<hr class="star-light">
-			</fieldset>
-		</div>
-	</header>
-	
-	
-	
 	<section id="about">
 		<div class="container text-center">
 			<fieldset>
