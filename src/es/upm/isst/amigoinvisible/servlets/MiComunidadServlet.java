@@ -3,6 +3,7 @@ package es.upm.isst.amigoinvisible.servlets;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServlet;
@@ -27,6 +28,11 @@ public class MiComunidadServlet extends HttpServlet {
 			return;
 		}
 		System.out.println("mi comunidad");
+		req.getSession().setAttribute("sorteo", "Aun no se ha realizado el sorteo");
+		
+			System.out.println("Al entrar a micomunidadservlet y cambiar:");
+			System.out.println(req.getAttribute("sorteo"));
+		
 		String userName = (String) req.getSession().getAttribute("user");
 		ComunidadDao dao = ComunidadDaoImpl.getInstance();
 		UserDao userdao = UserDaoImpl.getInstance();
@@ -34,26 +40,49 @@ public class MiComunidadServlet extends HttpServlet {
 		Usuario user = userdao.getUserByName(userName);
 		List<Comunidad> comunidades = dao.getComunidadesByUser(user.getUserId());
 		Comunidad comunidad = null;
-		
+		HashMap<String, String> sorteo = null;
+		String regalado;
+		List<String> miembros = null;
 		
 		for (Comunidad i: comunidades) {
 			if (req.getParameter(i.getNombre()) != null) {
 				comunidad=i;
+				miembros=i.getUsuariosId();
 			}
-			if(req.getSession().getAttribute("nombrecomunidad") != null){
+			/*if(req.getSession().getAttribute("nombrecomunidad") != null){
 				if(i.getNombre().equals(req.getSession().getAttribute("nombrecomunidad").toString())){
 					comunidad = i;
-				}
-			}
+				
+			}*/
 		}
+		
+			for(String j: miembros){
+				String nombre=j;
+				nombre=userdao.getUserByID(nombre).getUsername();
+				miembros.add(nombre);
+				miembros.remove(j);
+			}
+			miembros.add(userdao.getUserByID(comunidad.getGestorId()).getUsername());
 
 		if (comunidad == null){
 			req.getSession().setAttribute("nombrecomunidad", "Prueba");
 		}
 		else{
 			req.getSession().setAttribute("nombrecomunidad", comunidad.getNombre());
+			req.getSession().setAttribute("miembros", new ArrayList<String>(miembros));
+			sorteo=comunidad.getSorteo();
 		}
-
+		/*
+		if (sorteo!=null && !sorteo.isEmpty()){
+			regalado = sorteo.get(userName);
+			req.setAttribute("sorteo", regalado);
+		}else{
+			req.removeAttribute("sorteo");
+		}
+		*/	
+			
+			
+			
 		if(user.getUserId().equals(comunidad.getGestorId())){
 			req.getSession().setAttribute("gestor", true);
 		}else{
@@ -66,13 +95,16 @@ public class MiComunidadServlet extends HttpServlet {
 		req.getSession().setAttribute("mensajes", new ArrayList<>(mensajes));
 		
 		if(comunidad.getSorteo() != null){
-			System.out.println("sorteo != null");
+			System.out.println("sorteo != null y te toca regalar a:");
+			System.out.println(comunidad.getSorteo().get(user.getUserId()));
 			Usuario usuarioARegalar = userdao.getUserByID(comunidad.getSorteo().get(user.getUserId()));
 			if(comunidad.getSorteo().isEmpty() || usuarioARegalar == null){
-				req.getSession().setAttribute("sorteo", "AÃºn no se ha realizado ningÃºn sorteo");
+				req.getSession().setAttribute("sorteo", "Aún no se ha realizado ningún sorteo");
 			}else{
 				req.getSession().setAttribute("sorteo", usuarioARegalar.getUsername());
 			}
+		}else{
+			
 		}
 
 		

@@ -34,6 +34,7 @@ public class GuardarDeseoServlet extends HttpServlet{
 		UserDao dao = UserDaoImpl.getInstance();
 		Usuario user = dao.getUserByID(userName);
 		String nuevodeseo= req.getParameter("nuevodeseo");
+		if (nuevodeseo.length()>=3)
 		user.setDeseo(nuevodeseo);
 		dao.updateUser(user);
 		System.out.println(nuevodeseo);

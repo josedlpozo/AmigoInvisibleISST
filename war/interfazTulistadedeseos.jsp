@@ -80,7 +80,7 @@
 		<div class="container">
 			<h1>Ideas para regalar</h1>
 				<div id="listadeseos">
-					<form onsubmit= "return Misdeseos()" method="get">
+					<form action="/tuamazon" method="get">
 						<c:forEach items="${deseos}" var="deseo">
 								<input type="submit" id="deseo"
 									name="<c:out value="${deseo}" />"
@@ -91,6 +91,8 @@
 								<br>
 								<br>
 						</c:forEach>
+						<input type="text" hidden="true" name="regalado" value="<c:out value="${sorteo}" />" 
+						/>
 					</form>
 				</div>
 				

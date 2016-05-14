@@ -76,7 +76,7 @@
 					<div id="oculto">
 						<h2>A quien tienes que regalar </h2>
 								<!--  TODO  -->
-								<c:if test="${not empty sorteo}">
+								
 									<form action="/TuListaDeDeseosServlet" method="get"> 
 									<div align="center" class="oculto">
 									<input type="submit" 
@@ -88,10 +88,10 @@
 								/>
 								</div>
 								</form>
-								</c:if>
+								
 								
 					</div>
-					<c:if test="${not empty gestor}">
+					<c:if test="${gestor == true}">
 						<form action="/sorteo" method="get"> 
 							 <input type="submit" 
 							 	name="Realizar sorteo"
@@ -113,8 +113,19 @@
 		<div class="container text-center">
 			<fieldset>
 				<div id="listasdedeseos">
-					<h2>Listas de deseos</h2>
-						<p>AquÃ­ aparecen los nombres de los usuarios del grupo y esos nombres son los enlaces a sus correspondientes listas de deseos</p>
+					<h2>Miembros de la comunidad</h2>
+						<form action="" method="get">
+							<c:forEach items="${miembros}" var="miembro">
+									<input type="submit" 
+										name="<c:out value="${miembro}" />"
+										value="<c:out value="${miembro}" />" 
+										style="background-color: #2c3e50" 
+										class="btn btn-default"
+									/>
+									<br>
+									<br>
+							</c:forEach>
+						</form>
 				</div>
 				<hr class="star-primary">
 			</fieldset>
